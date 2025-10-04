@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLife Wellness - Authentication</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-animation">
+        <div class="floating-leaf leaf1">🍃</div>
+        <div class="floating-leaf leaf2">🌿</div>
+        <div class="floating-leaf leaf3">🍃</div>
+        <div class="floating-leaf leaf4">🌱</div>
+    </div>
+
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-container active" id="loginForm">
+            <div class="logo-section">
+                <div class="logo">🌿</div>
+                <div class="company-name">GreenLife Wellness</div>
+                <div class="tagline">Your journey to better health</div>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+
+                <div class="forgot-password">
+                    <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="submit-btn">Sign In</button>
+            </form>
+
+            <div class="divider">
+                <span>or continue with</span>
+            </div>
+
+            <div class="social-login">
+                <div class="social-btn" onclick="socialLogin('google')">🌐</div>
+                <div class="social-btn" onclick="socialLogin('facebook')">📘</div>
+                <div class="social-btn" onclick="socialLogin('apple')">🍎</div>
+            </div>
+
+            <div class="form-footer">
+                
+                Don't have an account? <a onclick="switchToRegister()">Sign up here</a>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-container" id="registerForm">
+            <div class="logo-section">
+                <div class="logo">🌿</div>
+                <div class="company-name">GreenLife Wellness</div>
+                <div class="tagline">Join our wellness community</div>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+                    <input type="email" id="registerEmail" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" placeholder="Create a password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="termsCheck" required>
+                    <label for="termsCheck">I agree to the <a href="#" style="color: #4CAF50;">Terms of Service</a> and <a href="#" style="color: #4CAF50;">Privacy Policy</a></label>
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="newsletterCheck">
+                    <label for="newsletterCheck">Send me wellness tips and updates</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+
+            <div class="divider">
+                <span>or sign up with</span>
+            </div>
+
+            <div class="social-login">
+                <div class="social-btn" onclick="socialLogin('google')">🌐</div>
+                <div class="social-btn" onclick="socialLogin('facebook')">📘</div>
+                <div class="social-btn" onclick="socialLogin('apple')">🍎</div>
+            </div>
+
+            <div class="form-footer">
+                Already have an account? <a onclick="switchToLogin()">Sign in here</a>
+            </div>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div class="form-container" id="forgotForm">
+            <div class="logo-section">
+                <div class="logo">🌿</div>
+                <div class="company-name">GreenLife Wellness</div>
+                <div class="tagline">Reset your password</div>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label for="forgotEmail">Email Address</label>
+                    <input type="email" id="forgotEmail" placeholder="Enter your email" required>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Reset Link</button>
+            </form>
+
+            <div class="form-footer">
+                Remember your password? <a onclick="switchToLogin()">Sign in here</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchToRegister() {
+            document.getElementById('loginForm').classList.remove('active');
+            document.getElementById('registerForm').classList.add('active');
+            document.getElementById('forgotForm').classList.remove('active');
+        }
+
+        function switchToLogin() {
+            document.getElementById('loginForm').classList.add('active');
+            document.getElementById('registerForm').classList.remove('active');
+            document.getElementById('forgotForm').classList.remove('active');
+        }
+
+        function showForgotPassword() {
+            document.getElementById('loginForm').classList.remove('active');
+            document.getElementById('registerForm').classList.remove('active');
+            document.getElementById('forgotForm').classList.add('active');
+        }
+
+        function socialLogin(provider) {
+            alert(`${provider.charAt(0).toUpperCase() + provider.slice(1)} login would be implemented here`);
+        }
+
+        // Add form validation
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const formType = this.closest('.form-container').id;
+                
+                if (formType === 'registerForm') {
+                    const password = document.getElementById('registerPassword').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
+                    
+                    if (password !== confirmPassword) {
+                        alert('Passwords do not match!');
+                        return;
+                    }
+                    
+                    if (!document.getElementById('termsCheck').checked) {
+                        alert('Please accept the Terms of Service and Privacy Policy.');
+                        return;
+                    }
+                }
+                
+                // Here you would typically send the data to your server
+                console.log('Form submitted:', formType);
+                alert(`${formType === 'loginForm' ? 'Login' : formType === 'registerForm' ? 'Registration' : 'Password reset'} would be processed here`);
+            });
+        });
+
+        // Add input animations
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

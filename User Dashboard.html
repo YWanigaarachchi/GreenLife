@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLife Wellness Center - Holistic Health & Wellness</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+        <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">GreenLife Wellness</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                        <li><a href="Services Page.html" onclick="showPage('services')" class="nav-link">Services</a></li>
+                        <li><a href="Appointments Page.html" onclick="showPage('appointments')" class="nav-link">Book Appointment</a></li>
+                        <li><a href="About Page.html" onclick="showPage('about')" class="nav-link">About</a></li>
+                        <li><a href="Contact Page.html" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+                        <li><a href="login.php" onclick="showLoginModal()" class="nav-link">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- User Dashboard -->
+    <div id="dashboard" class="page">
+        <div class="container">
+            <h1 class="dashboard-title">User Dashboard</h1>
+            
+            <div class="dashboard">
+                <div class="sidebar">
+                    <h3 class="sidebar-menu-title">Menu</h3>
+                    <ul>
+                        <li><a href="#" onclick="showDashboardSection('profile')">My Profile</a></li>
+                        <li><a href="#" onclick="showDashboardSection('appointments')">My Appointments</a></li>
+                        <li><a href="#" onclick="showDashboardSection('history')">Treatment History</a></li>
+                        <li><a href="#" onclick="showDashboardSection('messages')">Messages</a></li>
+                        <li><a href="#" onclick="logout()">Logout</a></li>
+                    </ul>
+                </div>
+                
+                <div class="main-content">
+                    <div id="profile-section" class="dashboard-section">
+                        <h2>My Profile</h2>
+                        <p>Welcome back! Here you can view and update your profile information.</p>
+                        <div style="margin-top: 2rem;">
+                            <p><strong>Name:</strong> <span id="userDisplayName">John Doe</span></p>
+                            <p><strong>Email:</strong> <span id="userDisplayEmail">john@email.com</span></p>
+                            <p><strong>Member Since:</strong> January 2024</p>
+                        </div>
+                    </div>
+                    
+                    <div id="appointments-section" class="dashboard-section" style="display: none;">
+                        <h2>My Appointments</h2>
+                        <div class="table-container">
+                            <table id="appointmentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Service</th>
+                                        <th>Therapist</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appointmentsBody">
+                                    <!-- Appointments will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div id="history-section" class="dashboard-section" style="display: none;">
+                        <h2>Treatment History</h2>
+                        <p>View your complete treatment history and progress notes.</p>
+                        <div style="margin-top: 2rem;">
+                            <p>No treatment history available yet. Book your first appointment to get started!</p>
+                        </div>
+                    </div>
+                    
+                    <div id="messages-section" class="dashboard-section" style="display: none;">
+                        <h2>Messages</h2>
+                        <p>Communication with your therapists and wellness consultants.</p>
+                        <div style="margin-top: 2rem;">
+                            <p>No new messages.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenLife Wellness Center - Holistic Health & Wellness</title>
+    <style>
+        /* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f9fdf9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== Header ===== */
+header {
+    background: #2c5f2d;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* ===== Navigation ===== */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: #ffd166;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 6rem 1rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #ffd166;
+    color: #2c5f2d;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #fcbf49;
+    transform: scale(1.05);
+}
+
+/* ===== Why Choose Section ===== */
+.why-choose-section {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.why-choose-title {
+    font-size: 2rem;
+    color: #2c5f2d;
+    margin-bottom: 2rem;
+}
+
+/* ===== Services Grid ===== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.service-card h3 {
+    color: #2c5f2d;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+        <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">GreenLife Wellness</div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                        <li><a href="Services Page.html" onclick="showPage('services')" class="nav-link">Services</a></li>
+                        <li><a href="Appointments Page.html" onclick="showPage('appointments')" class="nav-link">Book Appointment</a></li>
+                        <li><a href="About Page.html" onclick="showPage('about')" class="nav-link">About</a></li>
+                        <li><a href="Contact Page.html" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+                        <li><a href="login.php" onclick="showLoginModal()" class="nav-link">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to GreenLife Wellness Center</h1>
+                <p>Your journey to holistic health and wellness begins here. Experience the perfect blend of ancient wisdom and modern wellness practices.</p>
+                <a href="#" onclick="showPage('services')" class="btn">Explore Our Services</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <section class="why-choose-section">
+                <h2 class="why-choose-title">Why Choose GreenLife?</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Holistic Approach</h3>
+                        <p>We treat the whole person - mind, body, and spirit - using integrated wellness practices that address root causes, not just symptoms.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Expert Practitioners</h3>
+                        <p>Our certified therapists and wellness consultants bring years of experience in Ayurveda, yoga, nutrition, and holistic healing.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Personalized Care</h3>
+                        <p>Every treatment plan is customized to your unique needs, lifestyle, and wellness goals for optimal results.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>
